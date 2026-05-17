@@ -2,11 +2,15 @@
 
 namespace App\Providers;
 
+use App\Interfaces\PortfolioRepositoryInterface;
+use App\Interfaces\ServiceRepositoryInterface;
+use App\Repositories\ServiceRepository;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use App\Repositories\PortfolioRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Force the binding right here inside the core app provider
+        $this->app->bind(ServiceRepositoryInterface::class, ServiceRepository::class);
+        $this->app->bind(PortfolioRepositoryInterface::class, PortfolioRepository::class);
+
     }
 
     /**
