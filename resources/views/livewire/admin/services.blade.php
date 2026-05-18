@@ -126,7 +126,7 @@
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <img class="mx-auto w-[100px]" src="{{ $service->getFirstMediaUrl('icon', 'thumb') ?: 'https://placehold.co/100' }}" alt="">
                                 </th>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 ">
                                     {{$service->title}}
                                 </td>
                                 <td class="px-6 py-4">

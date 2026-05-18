@@ -59,9 +59,9 @@
 
                             {{-- 1. Temporary Upload Live Preview --}}
                             @if ($thumbnail)
-                                <div class="relative aspect-[16/10] border rounded-lg overflow-hidden shadow group">
+                                <div wire:key="temporary-thumbnail-preview" class="relative aspect-[16/10] border rounded-lg overflow-hidden shadow group">
                                     <img src="{{ $thumbnail->temporaryUrl() }}" class="w-full h-full object-cover" />
-                                    <button wire:click.prevent="removeUpload" class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1.5 hover:bg-red-600 focus:outline-none transition opacity-90 hover:scale-105" title="Remove newly chosen file">
+                                    <button  wire:click.prevent="removeUpload" class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1.5 hover:bg-red-600 focus:outline-none transition opacity-90 hover:scale-105" title="Remove newly chosen file">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
@@ -69,9 +69,9 @@
                                 </div>
                             {{-- 2. Spatie Existing Image Persistent Storage Preview --}}
                             @elseif ($isEditMode && $existingThumbnail)
-                                <div class="relative aspect-[16/10] border rounded-lg overflow-hidden shadow group">
+                                <div wire:key="existing-thumbnail-preview" class="relative aspect-[16/10] border rounded-lg overflow-hidden shadow group">
                                     <img src="{{ $existingThumbnail }}" class="w-full h-full object-cover" />
-                                    <button type="button" wire:click.prevent="deleteExistingThumbnail"
+                                    <button  wire:click.prevent="deleteExistingThumbnail"
                                         class="absolute top-2 right-2 z-50 bg-red-600 text-white rounded-full p-2 hover:bg-red-700 shadow-md focus:outline-none transition-all duration-150 hover:scale-110 flex items-center justify-center"
                                         title="Delete image from database permanently">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
@@ -100,7 +100,32 @@
             </div>
         </form>
     </flux:modal>
+ <!-- Search and Show Entries Section -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
+            <div class="flex items-center gap-2">
+                <label for="show-entries" class="text-gray-600 text-sm">Show</label>
+                <select
+                    id="show-entries"
+                    wire:model.live="perPage"
+                    class="w-[50px] border p-2 rounded text-sm text-black dark:text-white"
+                >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+                <span class="text-gray-600 text-sm">entries</span>
+            </div>
 
+            <div class="flex items-center">
+                <flux:input
+                    size="sm"
+                    placeholder="Filter by..."
+                    wire:model.live="search"
+                    class="text-black dark:text-white"
+                />
+            </div>
+        </div>
     <div class="overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-white">
             <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-white">
@@ -164,13 +189,3 @@
         </div>
     </div>
 </div>
-
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
-
-@section('script')
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    new FroalaEditor('#content');
-});
-</script>
-@endsection

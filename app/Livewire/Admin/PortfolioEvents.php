@@ -146,6 +146,7 @@ class PortfolioEvents extends Component
     }
     public function removeUpload()
     {
+        dd('working');
         $this->reset('thumbnail');
     }
 

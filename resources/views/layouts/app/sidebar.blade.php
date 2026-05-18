@@ -3,17 +3,17 @@
     <head>
         @include('partials.head')
         @include('sweetalert2::index')
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         {{--<script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css"> --}}
+<link rel="stylesheet" href="sweetalert2.min.css"> --}}
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
         <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.header>
                 <x-app-logo
                     :sidebar="true"
-                        :href="auth()->user()->hasRole('admin') ? route('admin.dashboard') : route('employee.dashboard')"
+                    :href="auth()->user()->hasRole('admin') ? route('admin.dashboard') : route('employee.dashboard')"
                     wire:navigate />
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
@@ -29,13 +29,20 @@
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
                     <flux:navlist.item icon="newspaper" :href="route('admin.portfolio-event')" :current="request()->routeIs('admin.portfolio-event')" wire:navigate>
-                {{ __('Events') }}
-            </flux:navlist.item>
+                        {{ __('Events') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="handshake" :href="route('admin.our-clients')" :current="request()->routeIs('admin.our-clients')" wire:navigate>
+                        {{ __('Our Clients') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="users-round" :href="route('admin.teams')" :current="request()->routeIs('admin.teams')" wire:navigate>
+                        {{ __('Teams') }}
+                    </flux:navlist.item>
                 </flux:sidebar.group>
                 <flux:navlist.group :heading="__('Others')" expandable>
                     <flux:navlist.item icon="wrench" :href="route('admin.services')" :current="request()->routeIs('admin.services')" wire:navigate>
                         {{ __('Services') }}
                     </flux:navlist.item>
+
                 </flux:navlist.group>
             </flux:sidebar.nav>
 
@@ -109,65 +116,65 @@
 
         @fluxScripts
         <script>
-    $(document).ready(function() {
-      document.addEventListener('swalToast', function(e) {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          customClass: {
-            popup: 'swal2-toast-center'
-          },
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
-        });
-        Toast.fire({
-          icon: e.detail[0].icon,
-          title: e.detail[0].message,
-        });
-      });
-      document.addEventListener('confirm_delete', function(e) {
-        const actionType = e.detail[0].for; // Get the 'for' parameter
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Livewire.dispatch('deleteAction' + actionType);
-          }
-        });
-      });
-      const notifBtn = document.getElementById('notifBtn');
-      const notifDropdown = document.getElementById('notifDropdown');
+        $(document).ready(function() {
+            document.addEventListener('swalToast', function(e) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    customClass: {
+                        popup: 'swal2-toast-center'
+                    },
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: e.detail[0].icon,
+                    title: e.detail[0].message,
+                });
+            });
+            document.addEventListener('confirm_delete', function(e) {
+                const actionType = e.detail[0].for; // Get the 'for' parameter
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                        if (result.isConfirmed) {
+                            Livewire.dispatch('deleteAction' + actionType);
+                        }
+                    });
+            });
+            const notifBtn = document.getElementById('notifBtn');
+            const notifDropdown = document.getElementById('notifDropdown');
 
-      if (notifBtn && notifDropdown) {
-        notifBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          notifDropdown.classList.toggle('hidden');
-        });
+            if (notifBtn && notifDropdown) {
+                notifBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    notifDropdown.classList.toggle('hidden');
+                });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function() {
-          if (!notifDropdown.classList.contains('hidden')) {
-            notifDropdown.classList.add('hidden');
-          }
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    if (!notifDropdown.classList.contains('hidden')) {
+                        notifDropdown.classList.add('hidden');
+                    }
+                });
+                // Prevent clicks inside dropdown from closing it
+                notifDropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
         });
-        // Prevent clicks inside dropdown from closing it
-        notifDropdown.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-      }
-    });
-  </script>
+        </script>
 
     </body>
 </html>
