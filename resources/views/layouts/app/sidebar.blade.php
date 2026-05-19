@@ -37,6 +37,12 @@
                     <flux:navlist.item icon="users-round" :href="route('admin.teams')" :current="request()->routeIs('admin.teams')" wire:navigate>
                         {{ __('Teams') }}
                     </flux:navlist.item>
+                    <flux:navlist.item icon="list-ordered" :href="route('admin.work')" :current="request()->routeIs('admin.work')" wire:navigate>
+                        {{ __('How We Work') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="building-2" :href="route('admin.aboutManager')" :current="request()->routeIs('admin.aboutManager')" wire:navigate>
+                        {{ __('About Manager') }}
+                    </flux:navlist.item>
                 </flux:sidebar.group>
                 <flux:navlist.group :heading="__('Others')" expandable>
                     <flux:navlist.item icon="wrench" :href="route('admin.services')" :current="request()->routeIs('admin.services')" wire:navigate>

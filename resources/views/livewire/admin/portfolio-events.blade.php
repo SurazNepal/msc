@@ -35,7 +35,6 @@
                     <div class="md:col-span-2">
                         <flux:input type="text" name="tags" label="Badges / Tags (Comma Separated)" wire:model="tags" placeholder="e.g., UI/UX, Laravel" badge="Required" />
                     </div>
-
                     <div x-data="{ isUploading: false, progress: 0 }"
                         x-on:livewire-upload-start="isUploading = true"
                         x-on:livewire-upload-finish="isUploading = false; progress = 0"
@@ -56,7 +55,6 @@
                                 </div>
                                 <p class="text-xs text-gray-500 mt-1">Uploading image... <span x-text="progress"></span>%</p>
                             </div>
-
                             {{-- 1. Temporary Upload Live Preview --}}
                             @if ($thumbnail)
                                 <div wire:key="temporary-thumbnail-preview" class="relative aspect-[16/10] border rounded-lg overflow-hidden shadow group">

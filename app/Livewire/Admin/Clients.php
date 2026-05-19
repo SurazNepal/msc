@@ -73,12 +73,12 @@ class Clients extends Component
         if ($this->thumbnail) {
             $validatedData['thumbnail'] = $this->thumbnail->getRealPath();
         }
-
         try {
             $this->repository->createClient($validatedData);
             $this->dispatch('swalToast', ['icon' => 'success', 'message' => 'Client Added Successfully!']);
             $this->closeModalAndReset();
         } catch (\Exception $e) {
+            $this->closeModalAndReset();
             $this->dispatch('swalToast', ['icon' => 'error', 'message' => 'Failed to add client records.']);
         }
     }
@@ -157,7 +157,7 @@ class Clients extends Component
         }
     }
 
-    public function removeUpload()
+    public function removeImage()
     {
         $this->reset('thumbnail');
     }
