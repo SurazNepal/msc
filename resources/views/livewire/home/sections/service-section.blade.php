@@ -18,7 +18,7 @@
                     </div>
                     <h3 class="font-display font-semibold text-white mb-3">Conferences &amp; Seminars</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-5">Full organisation and execution of conferences, seminars, AGMs, press conferences, and interactions — including secretariat services, sponsorship, and delegate management.</p>
-                    <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                    <!-- <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a> -->
                 </div>
 
                 <!-- Card 2 -->
@@ -28,7 +28,7 @@
                     </div>
                     <h3 class="font-display font-semibold text-white mb-3">Trade Exhibitions &amp; Fairs</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-5">Organisation of trade exhibitions, consumer fairs, displays, art exhibitions — including booth construction, branding, photo mounting, and media centre setup.</p>
-                    <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                  <!--  <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a> -->
                 </div>
 
                 <!-- Card 3 – highlighted -->
@@ -39,7 +39,7 @@
                     </div>
                     <h3 class="font-display font-semibold text-white mb-3">Facebook &amp; Digital Marketing</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-5">Facebook advertising, customer insights, like growth campaigns, digital promotions, and website development — reaching people who matter to your brand.</p>
-                    <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                    <!-- <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a> -->
                 </div>
 
                 <!-- Card 4 -->
@@ -49,7 +49,7 @@
                     </div>
                     <h3 class="font-display font-semibold text-white mb-3">Outdoor Shows &amp; Production</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-5">Sound and light systems, stage building, LED screens, theme décor, strategic branding, and customised event merchandise for large-scale outdoor productions.</p>
-                    <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                    <!-- <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a> -->
                 </div>
 
                 <!-- Card 5 -->
@@ -59,7 +59,7 @@
                     </div>
                     <h3 class="font-display font-semibold text-white mb-3">Brand Communication</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-5">Media releases, souvenir design, visiting cards, all-kinds-of printing solutions, and comprehensive brand communication that gets your message across clearly.</p>
-                    <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                   <!-- <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a> -->
                 </div>
 
                 <!-- Card 6 -->
@@ -69,7 +69,7 @@
                 </div>
                 <h3 class="font-display font-semibold text-white mb-3">Crew &amp; Artist Management</h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-5">Masters of ceremony, photography, hostesses, live bands, DJs, entertainers, performance artists, and private security — fully managed for your event.</p>
-                <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+               <!-- <a href="#faq" class="text-brand text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">Learn more <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a> -->
             </div>
 
             </div>

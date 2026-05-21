@@ -5,12 +5,14 @@ namespace App\Providers;
 use App\Interfaces\AboutRepositoryInterface;
 use App\Interfaces\ClientRepositoryInterface;
 use App\Interfaces\HowWeWorkRepositoryInterface;
+use App\Interfaces\LogoRepositoryInterface;
 use App\Interfaces\PortfolioRepositoryInterface;
 use App\Interfaces\ServiceRepositoryInterface;
 use App\Interfaces\TeamRepositoryInterface;
 use App\Repositories\AboutRepository;
 use App\Repositories\ClientRepository;
 use App\Repositories\HowWeWorkRepository;
+use App\Repositories\LogoRepository;
 use App\Repositories\ServiceRepository;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
@@ -34,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ClientRepositoryInterface::class,ClientRepository::class);
         $this->app->bind(HowWeWorkRepositoryInterface::class, HowWeWorkRepository::class);
         $this->app->bind(AboutRepositoryInterface::class, AboutRepository::class);
+        $this->app->bind(LogoRepositoryInterface::class, LogoRepository::class);
 
     }
 

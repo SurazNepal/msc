@@ -48,6 +48,10 @@
                     <flux:navlist.item icon="wrench" :href="route('admin.services')" :current="request()->routeIs('admin.services')" wire:navigate>
                         {{ __('Services') }}
                     </flux:navlist.item>
+                    <flux:navlist.item icon="image" :href="route('admin.logoManager')" :current="request()->routeIs('admin.logoManager')" wire:navigate>
+                        {{ __('Logo') }}
+                    </flux:navlist.item>
+
 
                 </flux:navlist.group>
             </flux:sidebar.nav>
