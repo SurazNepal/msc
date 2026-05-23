@@ -13,7 +13,6 @@
     <livewire:Home.Sections.ClienteleSection />
     <livewire:Home.Sections.ContactSection />
 
-
     <livewire:Components.Footer />
 
     <script>
@@ -36,12 +35,10 @@
             icon.classList.add('open');
         }
     }
-
     // Scroll nav effect
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
         header.style.borderBottomColor = window.scrollY > 50 ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.05)';
     });
     </script>
-
 </div>

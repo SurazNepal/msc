@@ -28,28 +28,31 @@
                     >
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
-                    <flux:navlist.item icon="newspaper" :href="route('admin.portfolio-event')" :current="request()->routeIs('admin.portfolio-event')" wire:navigate>
+                    <flux:navlist.item icon="newspaper" :href="route('admin.portfolio-event')" :current="request()->routeIs('admin.portfolio-event')" >
                         {{ __('Events') }}
                     </flux:navlist.item>
-                    <flux:navlist.item icon="handshake" :href="route('admin.our-clients')" :current="request()->routeIs('admin.our-clients')" wire:navigate>
+                    <flux:navlist.item icon="handshake" :href="route('admin.our-clients')" :current="request()->routeIs('admin.our-clients')" >
                         {{ __('Our Clients') }}
                     </flux:navlist.item>
-                    <flux:navlist.item icon="users-round" :href="route('admin.teams')" :current="request()->routeIs('admin.teams')" wire:navigate>
+                    <flux:navlist.item icon="users-round" :href="route('admin.teams')" :current="request()->routeIs('admin.teams')" >
                         {{ __('Teams') }}
                     </flux:navlist.item>
-                    <flux:navlist.item icon="list-ordered" :href="route('admin.work')" :current="request()->routeIs('admin.work')" wire:navigate>
+                    <flux:navlist.item icon="list-ordered" :href="route('admin.work')" :current="request()->routeIs('admin.work')" >
                         {{ __('How We Work') }}
                     </flux:navlist.item>
-                    <flux:navlist.item icon="building-2" :href="route('admin.aboutManager')" :current="request()->routeIs('admin.aboutManager')" wire:navigate>
+                    <flux:navlist.item icon="building-2" :href="route('admin.aboutManager')" :current="request()->routeIs('admin.aboutManager')" >
                         {{ __('About Manager') }}
                     </flux:navlist.item>
                 </flux:sidebar.group>
                 <flux:navlist.group :heading="__('Others')" expandable>
-                    <flux:navlist.item icon="wrench" :href="route('admin.services')" :current="request()->routeIs('admin.services')" wire:navigate>
+                    <flux:navlist.item icon="wrench" :href="route('admin.services')" :current="request()->routeIs('admin.services')" >
                         {{ __('Services') }}
                     </flux:navlist.item>
                     <flux:navlist.item icon="image" :href="route('admin.logoManager')" :current="request()->routeIs('admin.logoManager')" wire:navigate>
                         {{ __('Logo') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="panel-bottom-close" :href="route('admin.footer-navigation')" :current="request()->routeIs('admin.footer-navigation')" >
+                        {{ __('Footer Navigation') }}
                     </flux:navlist.item>
 
 

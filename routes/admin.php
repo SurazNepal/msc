@@ -3,6 +3,7 @@
 use App\Livewire\Admin\AboutManager;
 use App\Livewire\Admin\Clients;
 use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\FooterNavigations;
 use App\Livewire\Admin\HowWeWorks;
 use App\Livewire\Admin\LogoManager;
 use App\Livewire\Admin\PortfolioEvents;
@@ -19,3 +20,4 @@ Route::get('/our-clients', Clients::class)->name('our-clients');
 Route::get('/how-we-work', HowWeWorks::class)->name('work');
 Route::get('/about-manager', AboutManager::class)->name('aboutManager');
 Route::get('/logo-manager', LogoManager::class)->name('logoManager');
+Route::get('/footer-navigation', FooterNavigations::class)->name('footer-navigation');
