@@ -3,6 +3,7 @@
 namespace App\Models\Admin;
 
 use App\Enums\ClientStatusEnum;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -17,6 +18,15 @@ class Client extends Model implements HasMedia
     protected $casts = [
         'status' => ClientStatusEnum::class,
     ];
+
+    /**
+     * Scope a query to only include published clients.
+     */
+    public function scopePublished(Builder $query): Builder
+    {
+        // Assumes your ClientStatusEnum has a value or case for PUBLISHED (e.g., ClientStatusEnum::PUBLISHED)
+        return $query->where('status', ClientStatusEnum::PUBLISHED);
+    }
 
     public function registerMediaCollections(): void
     {

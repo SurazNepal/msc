@@ -34,7 +34,7 @@ class ClientRepository implements ClientRepositoryInterface
         try {
             return DB::transaction(function () use ($data) {
                 $client = Client::create([
-                    'full_name'        => $data['name'],
+                    'full_name'        => $data['full_name'],
                     'website_url' => $data['website_url'] ?? null,
                     'status'      => $data['status'],
                 ]);
@@ -59,7 +59,7 @@ class ClientRepository implements ClientRepositoryInterface
                 $client = $this->getClientById($clientId);
 
                 $client->update([
-                    'full_name'        => $data['name'],
+                    'full_name'        => $data['full_name'],
                     'website_url' => $data['website_url'] ?? null,
                     'status'      => $data['status'],
                 ]);
