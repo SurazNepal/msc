@@ -31,6 +31,8 @@ class Services extends Component
     #[Validate('required|min:2')]
     public $title, $description;
     public $serviceId = null;
+    #[Validate('required')]
+    public $status;
 
     /**
      * FIX 1: Use boot() instead of mount(). This forces Laravel to resolve
@@ -102,6 +104,7 @@ class Services extends Component
             $this->serviceId = $service->id;
             $this->title = $service->title;
             $this->description = $service->description;
+            $this->status = $service->status;
 
             // Capture the 'thumb' conversion URL to showcase in your view
             $this->existingIcon = $service->getFirstMediaUrl('icon', 'thumb');
@@ -121,6 +124,7 @@ class Services extends Component
             'title'       => 'required|min:2',
             'description' => 'required|min:2',
             'icon'        => 'nullable|image|max:2048',
+            'status'      => 'required',
         ]);
 
         // Pass the file path only if a brand new icon is being uploaded

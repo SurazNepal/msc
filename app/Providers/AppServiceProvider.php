@@ -3,14 +3,17 @@
 namespace App\Providers;
 
 use App\Interfaces\AboutRepositoryInterface;
+use App\Interfaces\ContactRepositoryInterface;
 use App\Interfaces\ClientRepositoryInterface;
 use App\Interfaces\FooterRepositoryInterface;
 use App\Interfaces\HowWeWorkRepositoryInterface;
 use App\Interfaces\LogoRepositoryInterface;
 use App\Interfaces\PortfolioRepositoryInterface;
 use App\Interfaces\ServiceRepositoryInterface;
+use App\Interfaces\SocialMediaRepositoryInterface;
 use App\Interfaces\TeamRepositoryInterface;
 use App\Repositories\AboutRepository;
+use App\Repositories\ContactRepository;
 use App\Repositories\ClientRepository;
 use App\Repositories\FooterRepository;
 use App\Repositories\HowWeWorkRepository;
@@ -22,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use App\Repositories\PortfolioRepository;
+use App\Repositories\SocialMediaRepository;
 use App\Repositories\TeamRepository;
 
 class AppServiceProvider extends ServiceProvider
@@ -40,7 +44,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AboutRepositoryInterface::class, AboutRepository::class);
         $this->app->bind(LogoRepositoryInterface::class, LogoRepository::class);
         $this->app->bind(FooterRepositoryInterface::class, FooterRepository::class);
-
+        $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);
+        $this->app->bind(SocialMediaRepositoryInterface::class, SocialMediaRepository::class);
     }
 
     /**

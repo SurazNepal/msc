@@ -43,6 +43,10 @@
                     <flux:navlist.item icon="building-2" :href="route('admin.aboutManager')" :current="request()->routeIs('admin.aboutManager')" >
                         {{ __('About Manager') }}
                     </flux:navlist.item>
+                    <flux:navlist.item icon="message-square-quote" :href="route('admin.manage-reviews')" :current="request()->routeIs('admin.manage-reviews')" >
+                        {{ __('Manage Review') }}
+                    </flux:navlist.item>
+
                 </flux:sidebar.group>
                 <flux:navlist.group :heading="__('Others')" expandable>
                     <flux:navlist.item icon="wrench" :href="route('admin.services')" :current="request()->routeIs('admin.services')" >
@@ -50,6 +54,12 @@
                     </flux:navlist.item>
                     <flux:navlist.item icon="image" :href="route('admin.logoManager')" :current="request()->routeIs('admin.logoManager')" wire:navigate>
                         {{ __('Logo') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="contact-round" :href="route('admin.contact-setting')" :current="request()->routeIs('admin.contact-setting')" >
+                        {{ __('Contact Setting') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="globe" :href="route('admin.social-media')" :current="request()->routeIs('admin.social-media')" >
+                        {{ __('Social Media') }}
                     </flux:navlist.item>
                     <flux:navlist.item icon="panel-bottom-close" :href="route('admin.footer-navigation')" :current="request()->routeIs('admin.footer-navigation')" >
                         {{ __('Footer Navigation') }}

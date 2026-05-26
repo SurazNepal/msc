@@ -2,7 +2,9 @@
 
 namespace App\Models\Admin;
 
+use App\Enums\TeamStatusEnum;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +14,14 @@ class Team extends Model implements HasMedia
 {
     use InteractsWithMedia;
     protected $fillable = ['full_name','job_post','status'];
+/**
+     * Scope a query to only include published clients.
+     */
+    public function scopePublished(Builder $query): Builder
+    {
+        // Assumes your ClientStatusEnum has a value or case for PUBLISHED (e.g., ClientStatusEnum::PUBLISHED)
+        return $query->where('status', TeamStatusEnum::PUBLISHED);
+    }
 /**
      * Define the collection and ensure single file automatic replacement
      */

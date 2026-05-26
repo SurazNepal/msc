@@ -6,7 +6,7 @@
                 :dismissible="false"
                 @close="resetData(); isUploading = false; progress = 0;"
                 name="serviceModal"
-                class="md:w-96"
+                class="w-full max-w-3xl mx-auto px-4"
                 x-on:close="if (window.editorInstance) { window.editorInstance.destroy().catch(err => console.error('CKEditor destroy error:', err)); window.editorInstance = null; }">
                 <form method="post" action="#" wire:submit='{{$isEditMode ? 'update' : 'save'}}' enctype='multipart/form-data' name='addService'>
                     @csrf
@@ -18,7 +18,11 @@
                         </div>
 
                         <flux:input label="Title" badge="Required" type="text" wire:model='title' name="title" required/>
-
+                        <flux:select label="Status" placeholder="Select status.." wire:model="status">
+                            @foreach(\App\Enums\TeamStatusEnum::labels() as $value => $label)
+                                <flux:select.option value="{{ $value }}">{{ $label }}</flux:select.option>
+                            @endforeach
+                        </flux:select>
                         <div x-data="{ isUploading: false, progress: 0 }"
                             x-on:livewire-upload-start="isUploading = true"
                             x-on:livewire-upload-finish="isUploading = false; progress = 0"
@@ -47,9 +51,9 @@
 
                         <div>
                             <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                            <textarea id="description" wire:model="description" name="description" rows="4"
-                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Write your thoughts here..."></textarea>
+                           <x-rich-text-editor wire:model="description">
+                        <div id="content" >{!! $description !!}</div>
+                    </x-rich-text-editor>
                         </div>
 
                         <div class="flex space-x-2">
@@ -116,12 +120,25 @@
                                 Description
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                status
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($services as $service)
+                            @php
+                                // Get the raw string value (handles both cast enum objects and raw strings)
+                                $statusValue = $service->status instanceof \App\Enums\ServiceStatusEnum
+                                ? $service->status->value
+                                : $service->status;
+
+                                // Fetch colors and labels using your static methods
+                                $badgeColor = \App\Enums\ServiceStatusEnum::Colors()[$statusValue] ?? 'bg-gray-100 text-gray-800';
+                                $badgeLabel = \App\Enums\ServiceStatusEnum::labels()[$statusValue] ?? ucfirst($statusValue);
+                                @endphp
                             <tr class="text-center bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <img class="mx-auto w-[100px]" src="{{ $service->getFirstMediaUrl('icon', 'thumb') ?: 'https://placehold.co/100' }}" alt="">
@@ -130,8 +147,11 @@
                                     {{$service->title}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{$service->description}}
+                                    {{ Str::limit(strip_tags($service->description), 50, '...') }}
                                 </td>
+                                <td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium {{ $badgeColor }}">
+                                    {{ $badgeLabel }}
+                                </span></td>
                                 <td class="px-6 py-4">
                                     <flux:button icon="user-pen"  wire:click='edit({{$service->id}})'>Edit</flux:button>
                                     <flux:button icon="user-round-x" wire:click='destroy({{$service->id}})' variant="danger">Delete</flux:button>

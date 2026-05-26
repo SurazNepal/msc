@@ -8,12 +8,9 @@ use App\Interfaces\AboutRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 
 class AboutRepository implements AboutRepositoryInterface
-{
-    public function getSettings()
-    {
-        return AboutSetting::firstOrCreate([], [
-            'badge_text'             => 'About Mind Share Connect',
-            'title'                  => 'Who We Are & What We Do',
+{ public function getSettings() { return AboutSetting::firstOrCreate([], [
+    'badge_text'             => 'About Mind Share Connect',
+    'title'                  => 'Who We Are & What We Do',
             'description_one'        => 'Mind Share Connect is a fully integrated Marketing services company...',
             'description_two'        => 'We work through strategic ideas and innovative approaches...',
             'registration_number'    => 'Reg. No: 81657/067/68',

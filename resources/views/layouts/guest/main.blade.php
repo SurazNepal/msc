@@ -7,6 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -65,9 +68,50 @@
     .float { animation: float 5s ease-in-out infinite; }
     .testimonial-card { background: linear-gradient(135deg, rgba(30,39,51,0.8) 0%, rgba(22,28,36,0.8) 100%); }
     .team-img { width:100%; height:100%; object-fit:cover; }
+        .client-card{border:1px solid rgba(255,255,255,.07);transition:border-color .3s,transform .3s,background .3s;}
+    .client-card:hover{border-color:rgba(224,92,26,.4);transform:translateY(-4px);background:rgba(30,39,51,.8);}
+    .client-card img{filter:grayscale(100%);opacity:.55;transition:filter .3s,opacity .3s;}
+    .client-card:hover img{filter:grayscale(0%);opacity:1;}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .animate-marquee{animation:marquee 30s linear infinite;}
+.check-item{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.6rem;}
+    .check-item svg{flex-shrink:0;margin-top:2px;}
+.card{border:1px solid rgba(255,255,255,.07);transition:border-color .3s,transform .3s;}
+.card:hover{border-color:rgba(224,92,26,.4);transform:translateY(-3px);}
   </style>
 </head>
 <body class="antialiased">
+    <livewire:Components.Header />
+
         {{$slot}}
+
+    <livewire:Components.Footer />
+
+ @fluxScripts
+        <script>
+        $(document).ready(function() {
+            document.addEventListener('swalToast', function(e) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    customClass: {
+                        popup: 'swal2-toast-center'
+                    },
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: e.detail[0].icon,
+                    title: e.detail[0].message,
+                });
+            });
+        });
+        </script>
   </body>
+
 </html>

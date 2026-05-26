@@ -6,10 +6,11 @@
         Mind Share Connect
       </a>
       <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-        <a href="#about"        class="hover:text-white transition-colors">About Us</a>
-        <a href="#services"     class="hover:text-white transition-colors">Our Services</a>
-        <a href="#team"         class="hover:text-white transition-colors">Team</a>
-        <a href="#clients"      class="hover:text-white transition-colors">Clientele</a>
+        <a href="{{route('home')}}" class="hover:text-white transition-colors">Home</a>
+        <a href="{{route('about-us')}}" class="hover:text-white transition-colors">About Us</a>
+        <a href="{{route('our-services')}}" class="hover:text-white transition-colors">Our Services</a>
+        <a href="{{route('our-teams')}}"         class="hover:text-white transition-colors">Team</a>
+        <a href="{{route('clientele')}}"      class="hover:text-white transition-colors">Clientele</a>
         <a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a>
       </nav>
       <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand text-white text-sm font-medium hover:bg-brand-dark transition-colors">

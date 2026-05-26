@@ -1,5 +1,4 @@
 <div>
-    <livewire:Components.Header />
 
     <livewire:Home.Sections.HeroSection />
     <livewire:Home.Sections.ClientMarqueeSection />
@@ -13,7 +12,6 @@
     <livewire:Home.Sections.ClienteleSection />
     <livewire:Home.Sections.ContactSection />
 
-    <livewire:Components.Footer />
 
     <script>
     // Mobile menu

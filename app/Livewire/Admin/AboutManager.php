@@ -112,7 +112,6 @@ class AboutManager extends Component
                 return;
             }
         }
-
         Flux::modal('highlightModal')->show();
     }
 

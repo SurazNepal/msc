@@ -6,6 +6,8 @@
 @source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
 @source '../../vendor/livewire/flux/stubs/**/*.blade.php';
 
+
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -47,12 +49,33 @@
     }
 }
 
+@layer utilities {
+    @keyframes marquee {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(calc(-100% - 1.5rem));
+        }
+    }
+
+    .animate-marquee {
+        animation: marquee 30s linear infinite;
+    }
+
+    /* Custom utility to completely pause the CSS layout timeline loop instantly */
+    .pause-marquee {
+        animation-play-state: paused !important;
+    }
+}
+
 [data-flux-field]:not(ui-radio, ui-checkbox) {
     @apply grid gap-2;
 }
 
 [data-flux-label] {
-    @apply  !mb-0 !leading-tight;
+    @apply !mb-0 !leading-tight;
 }
 
 input:focus[data-flux-control],

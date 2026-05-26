@@ -41,7 +41,7 @@ class ServiceRepository implements ServiceRepositoryInterface
             $service = Service::create([
                 'title'       => $serviceDetails['title'],
                 'description' => $serviceDetails['description'],
-                'status'      => $serviceDetails['status'] ?? 'active',
+                'status'      => $serviceDetails['status'] ?? 'draft',
             ]);
 
             if (!empty($serviceDetails['icon'])) {
@@ -62,7 +62,7 @@ class ServiceRepository implements ServiceRepositoryInterface
             $service->update([
                 'title'       => $data['title'],
                 'description' => $data['description'],
-                'status'      => $data['status'] ?? 'active',
+                'status'      => $data['status'] ?? 'draft',
             ]);
 
             if (!empty($data['icon'])) {

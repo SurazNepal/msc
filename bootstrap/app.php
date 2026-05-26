@@ -22,6 +22,9 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->prefix('employee')
                 ->name('employee.')
                 ->group(base_path('routes/employee.php'));
+            // Register Guest Routes
+            Route::middleware(['web'])
+                ->group(base_path('routes/guest.php'));
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
