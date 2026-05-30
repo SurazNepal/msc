@@ -37,11 +37,11 @@ class FooterNavigation extends Model
 
                 // Explicit Static System Pages route map resolution
                 return match ($type) {
-                    'about_us'     => $this->maeObject('About Us', url('#about')),
+                    'about_us'     => $this->maeObject('About Us', url('about-us')),
                     // 'contact_us'   => $this->maeObject('Contact Us', route('contact-us')), // Change to your exact contact route
-                    'events'       => $this->makeObject('Events', url('#services')),   // Change to your exact events route
+                    'events'       => $this->makeObject('Events', url('events')),   // Change to your exact events route
                     'testimonials' => $this->makeObject('Testimonials', url('#testimonials')),
-                    'team'         => $this->makeObject('Team', url('#team')),
+                    'team'         => $this->makeObject('Team', url('our-teams')),
                     default        => null,
                 };
             })

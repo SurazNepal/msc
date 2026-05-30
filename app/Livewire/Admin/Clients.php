@@ -20,7 +20,7 @@ class Clients extends Component
 
     #[Url(history: true)]
     public $search = '';
-    public int $perPage = 10;
+    public int $perPage=10 ;
     public $isEditMode = false;
     public $clientId = null;
 

@@ -35,6 +35,10 @@ class ServiceRepository implements ServiceRepositoryInterface
     {
         return Service::findOrFail($serviceId);
     }
+    public function getServiceBySlug(string $slug): Service
+    {
+        return Service::where('slug', $slug)->firstOrFail();
+    }
     public function createService(array $serviceDetails): Service
     {
         return DB::transaction(function () use ($serviceDetails) {

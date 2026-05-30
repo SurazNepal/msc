@@ -28,7 +28,7 @@
                     >
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
-                    <flux:navlist.item icon="newspaper" :href="route('admin.portfolio-event')" :current="request()->routeIs('admin.portfolio-event')" >
+                    <flux:navlist.item icon="newspaper" :href="route('admin.portfolio-events')" :current="request()->routeIs('admin.portfolio-events')" >
                         {{ __('Events') }}
                     </flux:navlist.item>
                     <flux:navlist.item icon="handshake" :href="route('admin.our-clients')" :current="request()->routeIs('admin.our-clients')" >
@@ -60,6 +60,9 @@
                     </flux:navlist.item>
                     <flux:navlist.item icon="globe" :href="route('admin.social-media')" :current="request()->routeIs('admin.social-media')" >
                         {{ __('Social Media') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="notebook-tabs" :href="route('admin.manage-custom-pages')" :current="request()->routeIs('admin.manage-custom-pages')" >
+                        {{ __('Manage Custom Pages') }}
                     </flux:navlist.item>
                     <flux:navlist.item icon="panel-bottom-close" :href="route('admin.footer-navigation')" :current="request()->routeIs('admin.footer-navigation')" >
                         {{ __('Footer Navigation') }}

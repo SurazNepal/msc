@@ -10,6 +10,7 @@ interface PortfolioRepositoryInterface
 {
     public function getPaginatedPortfolioEvent(string $search = '', int $perPage = 10): LengthAwarePaginator;
     public function getAllEvents(): Collection;
+    public function getEventBySlug(string $slug): PortfolioEvent;
     public function getEventById(int $eventId): PortfolioEvent;
     public function deleteEvent(int $eventId): bool;
     public function createEvent(array $data): PortfolioEvent;

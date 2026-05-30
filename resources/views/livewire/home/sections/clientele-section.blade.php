@@ -37,6 +37,6 @@
             @endforelse
         </div>
 
-        <p class="text-center text-slate-500 text-sm mt-6">And many more — <a href="https://www.msc.com.np/clientele/" target="_blank" class="text-brand hover:underline">view full clientele list →</a></p>
+        <p class="text-center text-slate-500 text-sm mt-6">And many more — <a href="{{route('clientele')}}"  class="text-brand hover:underline">view full clientele list →</a></p>
     </div>
 </section>

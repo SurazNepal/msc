@@ -2,6 +2,7 @@
 
 use App\Livewire\Pages\AboutUsPage;
 use App\Livewire\Pages\ClientelePage;
+use App\Livewire\Pages\CustomPages\CustomPageView;
 use App\Livewire\Pages\Events\EventsPage;
 use App\Livewire\Pages\Events\SinglePage;
 use App\Livewire\Pages\Services\ServiceSinglePage;
@@ -17,6 +18,7 @@ Route::get('/our-services/{service:slug}', ServiceSinglePage::class)->name('serv
 Route::get('/events', EventsPage::class)->name('events');
 Route::get('/events/{event:slug}', SinglePage::class)->name('events.single');
 Route::get('/contact')->name('contact');
+Route::get('/page/{slug}', CustomPageView::class)->name('pages.show');
 
 // Route::get('/fix-service-slugs', function () {
 //     \App\Models\Admin\Service::whereNull('slug')

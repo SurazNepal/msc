@@ -28,7 +28,10 @@ class PortfolioRepository implements PortfolioRepositoryInterface
     {
         return PortfolioEvent::findOrFail($eventId);
     }
-
+    public function getEventBySlug(string $slug): PortfolioEvent
+    {
+        return PortfolioEvent::where('slug', $slug)->firstOrFail();
+    }
     public function createEvent(array $data): PortfolioEvent
     {
         try {
